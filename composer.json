@@ -1,0 +1,19 @@
+{
+    "name": "joaovitorfreitas/projeto_pi_entrega",
+    "description": "Esse é o que vou enviar",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Joaovitorfreitas\\ProjetoPiEntrega\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joao Vitor Freitas de Sousa",
+            "email": "jovifre2@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
