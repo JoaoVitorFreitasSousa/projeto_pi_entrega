@@ -1,11 +1,9 @@
-<?php
-echo "Home.php" . "<b>Olá Mundo!</b>";
-?> 
+
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>FlexBlog</title>
+	<title><?=$title ?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
@@ -38,6 +36,7 @@ echo "Home.php" . "<b>Olá Mundo!</b>";
 	</header>
 	
 	<h1 class="introducao">Novos valores e<br>Propriedades de CSS</h1>
+	<h2><?=$lenda ?></h2>
 
 	<section class="sobre" id="sobre">
 		<div class="sobre-info">
