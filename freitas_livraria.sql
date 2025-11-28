@@ -22,7 +22,7 @@ CREATE TABLE usuarios (
     cep VARCHAR(10),
     estado CHAR(2),
     email VARCHAR(255) NOT NULL,
-    nivel_acesso ENUM('Administrador', 'Funcionário', 'Cliente') NOT NULL,
+    nivel_acesso ENUM('Administrador', 'Funcionario', 'Cliente') NOT NULL,
     senha VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

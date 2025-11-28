@@ -35,7 +35,32 @@ class Usuario{
             $stmt =$pdo->prepare($sql);
 
             //Passa as variaveis para o SQL
-            $stmt->bindParam(':nome',$dados['nome'],PDO::PARAM_STR);
+            $stmt->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);
+            $stmt->bindParam(':nome_social', $dados['nome_social'], PDO::PARAM_STR);
+            $stmt->bindParam(':genero', $dados['genero'], PDO::PARAM_STR);
+            $stmt->bindParam(':cpf', $dados['cpf'], PDO::PARAM_STR);
+            $stmt->bindParam(':rg', $dados['rg'], PDO::PARAM_STR);
+            $stmt->bindParam(':data_nascimento', $dados['data_nascimento']); 
+            $stmt->bindParam(':celular', $dados['celular'], PDO::PARAM_STR);
+            $stmt->bindParam(':rua', $dados['rua'], PDO::PARAM_STR);
+            $stmt->bindParam(':numero', $dados['numero'], PDO::PARAM_STR);
+            $stmt->bindParam(':complemento', $dados['complemento'], PDO::PARAM_STR);
+            $stmt->bindParam(':bairro', $dados['bairro'], PDO::PARAM_STR);
+            $stmt->bindParam(':cidade', $dados['cidade'], PDO::PARAM_STR);
+            $stmt->bindParam(':cep', $dados['cep'], PDO::PARAM_STR);
+            $stmt->bindParam(':estado', $dados['estado'], PDO::PARAM_STR);
+            $stmt->bindParam(':email', $dados['email'], PDO::PARAM_STR);
+            $stmt->bindParam(':nivel_acesso', $dados['nivel_acesso'], PDO::PARAM_STR);
+            $stmt->bindParam(':senha', $senha_criptografada);
+
+            
+
+            
+            //Executa o SQL
+            $stmt->execute();
+            //Retorna o ID de registro no BD
+            return(int) $pdo->lastInsertId();
+
         }catch (PDOException $e){
             echo "Erro ao inserir: " . $e->getMessage();
             exit;

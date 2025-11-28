@@ -48,6 +48,12 @@ $controller->listar();
  render('usuarios/form_usuarios.php',['title' => 'Cadastrar Usuario']);   
 }
 
+//Verifica alem da rota o tipo do pedido
+else if($url == "/usuarios/salvar" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+    $controller = new UsuarioController();
+    $controller->salvar();
+}
+
 //Produtos
 else if($url == "/produtos"){
 render('produtos/lista_produtos.php',['title' => 'Listar Produtos']); 

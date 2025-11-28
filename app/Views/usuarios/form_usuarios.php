@@ -1,56 +1,75 @@
 
     <h3 class="mb-4">Cadastro de Usuários</h3>
 
-    <form class="border rounded p-4 bg-light">
+    <form action="/usuarios/salvar" method="POST" class="border rounded p-4 bg-light">
       <div class="row mb-3">
         <div class="col-md-6">
           <label class="form-label">Nome:</label>
-          <input type="text" class="form-control" placeholder="Digite o nome completo">
+          <input type="text" name="nome" class="form-control" placeholder="Digite o nome completo">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Nome Social:</label>
+          <input type="text" name="nome_social" class="form-control" placeholder="Digite o nome social">
         </div>
         <div class="col-md-6">
           <label class="form-label">E-mail:</label>
-          <input type="email" class="form-control" placeholder="Digite o e-mail">
+          <input type="email" name="email" class="form-control" placeholder="Digite o e-mail">
         </div>
       </div>
 
       <div class="row mb-3">
         <div class="col-md-4">
           <label class="form-label">Celular:</label>
-          <input type="text" class="form-control" placeholder="(xx) xxxxx-xxxx">
+          <input type="text" name="celular" class="form-control" placeholder="(xx) xxxxx-xxxx">
         </div>
         <div class="col-md-4">
           <label class="form-label">Data de Nascimento:</label>
-          <input type="date" class="form-control">
+          <input type="date" name="data_nascimento" class="form-control">
         </div>
         <div class="col-md-4">
           <label class="form-label">CPF:</label>
-          <input type="text" class="form-control" placeholder="Digite o CPF">
+          <input type="text" name="cpf" class="form-control" placeholder="Digite o CPF">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">RG:</label>
+          <input type="text" name="rg" class="form-control" placeholder="Digite o RG">
         </div>
       </div>
 
       <div class="row mb-3">
         <div class="col-md-6">
           <label class="form-label">Endereço:</label>
-          <input type="text" class="form-control" placeholder="Rua, avenida, etc.">
+          <input type="text" name="rua" class="form-control" placeholder="Rua, avenida, etc.">
         </div>
         <div class="col-md-2">
           <label class="form-label">Número:</label>
-          <input type="text" class="form-control">
+          <input type="text" name="numero" class="form-control">
         </div>
         <div class="col-md-4">
           <label class="form-label">Complemento:</label>
-          <input type="text" class="form-control">
+          <input type="text" name="complemento" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">CEP:</label>
+          <input type="text" name="cep" class="form-control">
         </div>
       </div>
 
       <div class="row mb-3">
+    <div class="col-md-4">
+      <label class="form-label">Bairro:</label>
+      <input type="text" name="bairro" class="form-control" placeholder="Digite o bairro">
+    </div>
+
+      <div class="row mb-3">
         <div class="col-md-4">
           <label class="form-label">Cidade:</label>
-          <input type="text" class="form-control">
+          <input type="text" name="cidade" class="form-control">
         </div>
         <div class="col-md-4">
           <label class="form-label">Estado:</label>
-          <select class="form-select">
+          <select name="estado" class="form-select">
             <option selected>-- Escolha --</option>
             <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option>
             <option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option>
@@ -62,7 +81,7 @@
         </div>
         <div class="col-md-4">
           <label class="form-label">Gênero:</label>
-          <select class="form-select">
+          <select name="genero" class="form-select">
             <option selected>-- Escolha --</option>
             <option>Masculino</option>
             <option>Feminino</option>
@@ -74,22 +93,17 @@
       <div class="row mb-3">
         <div class="col-md-6">
           <label class="form-label">Senha:</label>
-          <input type="password" class="form-control" placeholder="Digite a senha">
+          <input type="password" name="senha" class="form-control" placeholder="Digite a senha">
         </div>
-        <div class="col-md-6">
-          <label class="form-label">Confirmar Senha:</label>
-          <input type="password" class="form-control" placeholder="Confirme a senha">
-        </div>
-      </div>
+        
 
       <div class="row mb-3">
         <div class="col-md-6">
-          <label class="form-label">Tipo de Usuário:</label>
-          <select class="form-select">
-            <option selected>-- Escolha --</option>
-            <option>Administrador</option>
-            <option>Funcionário</option>
-            <option>Cliente</option>
+          <label class="form-label">Nivel de acesso:</label>
+          <select name="nivel_acesso" class="form-select">
+            <option value='Administrador'>Administrador</option>
+            <option value='Funcionario'>Funcionário</option>
+            <option value='Cliente'>Cliente</option>
           </select>
         </div>
       </div>
