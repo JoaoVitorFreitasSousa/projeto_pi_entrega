@@ -1,6 +1,6 @@
 
             <h3>Listagem de Produtos</h3>
-            <a href="?route=cadastrar-produto" class="btn btn-success">ADICIONAR</a>
+            <a href="/produtos/inserir" class="btn btn-success">ADICIONAR</a>
         </div>
 
         <div class="card p-3 shadow-sm">
@@ -11,33 +11,22 @@
                         <th>TÍTULO</th>
                         <th>AUTOR</th>
                         <th>PREÇO</th>
-                        <th>CATEGORIA</th>
-                        <th>AÇÕES</th>
+                        <th>DESCRIÇÃO</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($produtos as $p): ?>
                     <tr>
-                        <td>1</td>
-                        <td>O Senhor dos Anéis</td>
-                        <td>J.R.R. Tolkien</td>
-                        <td>79.90</td>
-                        <td>Fantasia</td>
-                        <td>
+                            <td><?=$p['id_produto']?></td>
+                            <td><?=$p['titulo']?></td>
+                            <td><?=$p['autor']?></td>
+                            <td><?=$p['preco']?></td>
+                            <td><?=$p['descricao']?></td>
                             <button class="btn btn-warning btn-sm">Editar</button>
                             <button class="btn btn-danger btn-sm">Excluir</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Dom Casmurro</td>
-                        <td>Machado de Assis</td>
-                        <td>29.90</td>
-                        <td>Clássico</td>
-                        <td>
-                            <button class="btn btn-warning btn-sm">Editar</button>
-                            <button class="btn btn-danger btn-sm">Excluir</button>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
       

@@ -12,7 +12,7 @@
 
                 <table class="table table-striped">
                     <thead>
-                        <tr> <!-- La no SQL que o ronan passou tem mais campos, mas so fiz esses -->
+                        <tr> 
                             <th>ID</th>
                             <th>NOME</th>
                             <th>EMAIL</th>

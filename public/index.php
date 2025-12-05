@@ -1,62 +1,76 @@
 <?php
-//Importa o autoload do Composer para Carregar as rotas
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\UsuarioController;
+use App\Controllers\ProdutoController;
 
-//Função para renderizar as telas com layout
+
+
 function render($view, $data = []) {
-    //Extrai os dados recebidos e converte em variaveis
     extract($data);
     ob_start();
-    //Inclui a tela que enviamos específica
     require __DIR__ . '/../app/Views/' . $view;
     $content = ob_get_clean();
-    //Inclui o layout base, que usará a variavel $content
     require __DIR__ . '/../app/Views/layouts/base.php';
 }
 
 function render_sem_template($view, $data = []) {
-    //Extrai os dados recebidos e converte em variaveis
     extract($data);
-    ob_start();
-    //Inclui a tela que enviamos específica
     require __DIR__ . '/../app/Views/' . $view;
-    
 }
 
-//Obtem a URL do navegador
+
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-if($url == "/" || $url == "/index.php"){
-    render_sem_template('home.php',
-    ['title' => 'Bem vindo!',
-    'lenda' => 'Agora eu sou uma lenda do PHP!'
-]);
-    
-}else if($url == "/sobre"){
-   render('sobre.php',['title' => 'Sobre a Página!']);  
+
+if ($url == "/" || $url == "/index.php") {
+
+    render_sem_template('home.php', [
+        'title' => 'Bem vindo!',
+        'lenda'  => 'Agora eu sou uma lenda do PHP!'
+    ]);
+
 }
 
-//Usuarios
-else if($url == "/usuarios"){
-//Cria uma instancia do Controller e chama a funcao de listar
-$controller = new UsuarioController();
-$controller->listar();
+else if ($url == "/sobre") {
 
-}else if($url == "/usuarios/inserir"){
- render('usuarios/form_usuarios.php',['title' => 'Cadastrar Usuario']);   
+    render('sobre.php', ['title' => 'Sobre a Página!']);
+
 }
 
-//Verifica alem da rota o tipo do pedido
-else if($url == "/usuarios/salvar" && $_SERVER['REQUEST_METHOD'] == 'POST'){
+
+
+else if ($url == "/usuarios") {
+
     $controller = new UsuarioController();
+    $controller->listar();
+
+} else if ($url == "/usuarios/inserir") {
+
+    render('usuarios/form_usuarios.php', ['title' => 'Cadastrar Usuario']);
+
+} else if ($url == "/usuarios/salvar" && $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $controller = new UsuarioController();
+    $controller->salvar();
+
+}
+
+
+else if ($url == "/produtos") {
+
+    $controller = new ProdutoController();
+    $controller->listar();
+
+} else if ($url == "/produtos/inserir") {
+
+    render('produtos/form_produtos.php', ['title' => 'Cadastrar Produtos']);
+
+} else if ($url == "/produtos/salvar" && $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $controller = new ProdutoController();
     $controller->salvar();
 }
 
-//Produtos
-else if($url == "/produtos"){
-render('produtos/lista_produtos.php',['title' => 'Listar Produtos']); 
-}else if($url == "/produtos/inserir"){
- render('produtos/form_produtos.php',['title' => 'Cadastrar Produtos']);   
-}
+?>
